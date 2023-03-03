@@ -75,12 +75,12 @@ fi
 
 if [ "$VERBOSE" = true ]; then
     
-    mpiexec -n $CORES python -u random_restart_ica.py -f $FILE -i $ITER -o $OUTDIR -t $TOL 2>&1
-    mpiexec -n $CORES python -u compute_distance.py -i $ITER -o $OUTDIR 2>&1
-    mpiexec -n $CORES python -u cluster_components.py -i $ITER -o $OUTDIR 2>&1
+    mpiexec -n $CORES python3 -u random_restart_ica.py -f $FILE -i $ITER -o $OUTDIR -t $TOL 2>&1
+    mpiexec -n $CORES python3 -u compute_distance.py -i $ITER -o $OUTDIR 2>&1
+    mpiexec -n $CORES python3 -u cluster_components.py -i $ITER -o $OUTDIR 2>&1
 else
     echo "" > $LOGFILE
-    mpiexec -n $CORES python -u random_restart_ica.py -f $FILE -i $ITER -o $OUTDIR -t $TOL >> $LOGFILE 2>&1
-    mpiexec -n $CORES python -u compute_distance.py -i $ITER -o $OUTDIR >> $LOGFILE 2>&1
-    mpiexec -n $CORES python -u cluster_components.py -i $ITER -o $OUTDIR >> $LOGFILE 2>&1
+    mpiexec -n $CORES python3 -u random_restart_ica.py -f $FILE -i $ITER -o $OUTDIR -t $TOL >> $LOGFILE 2>&1
+    mpiexec -n $CORES python3 -u compute_distance.py -i $ITER -o $OUTDIR >> $LOGFILE 2>&1
+    mpiexec -n $CORES python3 -u cluster_components.py -i $ITER -o $OUTDIR >> $LOGFILE 2>&1
 fi
